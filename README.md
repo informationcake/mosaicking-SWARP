@@ -9,21 +9,21 @@
 
 ## How to build and run the container
 
-1. Clone this repository
+Clone this repository
 
-2. Build the image
+Build the image
 
     docker build . -f ./Dockerfile --tag swarp:latest
 
-3. Run the container
+Run the container
 
     docker run --name swarp -d -t -v "$(pwd)"/scripts:/opt/scripts/ swarp:latest
 
-4. Exec into the container
+Exec into the container
 
     docker exec -it swarp /bin/bash
 
-5. Run the .sh script in scripts
+Run the .sh script in scripts
 
 ### Options
 
