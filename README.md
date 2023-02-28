@@ -1,5 +1,4 @@
-# swarp-container
-## A containerised version of the mosaicking software SWARP
+# A containerised version of the mosaicking software SWARP
 
 **The SWARP website is here:** https://www.astromatic.net/software/swarp/
 
