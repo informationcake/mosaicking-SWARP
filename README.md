@@ -11,8 +11,6 @@
 
 Clone this repository
 
-    git clone 
-
 Build the image
 
     docker build . -f ./Dockerfile --tag swarp:latest
