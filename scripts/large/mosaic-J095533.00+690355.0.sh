@@ -6,13 +6,7 @@
 #
 # $ /bin/bash J095533.00+690355.0.sh
 #
-hasPhotoObj=''
-if [[ -n "${BOSS_PHOTOOBJ}" ]]; then
-    if [[ -d ${BOSS_PHOTOOBJ}/frames/301 ]]; then
-        echo "BOSS_PHOTOOBJ detected.  Will attempt to use files on disk."
-        hasPhotoObj=True
-    fi
-fi
+
 for cmd in swarp bzip2 wget; do
     hasCmd=$(which ${cmd} 2>/dev/null)
     if [[ -z "${hasCmd}" ]]; then
@@ -80,9 +74,9 @@ BACK_FILTERSIZE        3               # Background map filter range (meshes)
                                        # (all or for each image)
 #------------------------------ Memory management -----------------------------
 VMEM_DIR               .               # Directory path for swap files
-VMEM_MAX               2047            # Maximum amount of virtual memory (MB)
-MEM_MAX                2048            # Maximum amount of usable RAM (MB)
-COMBINE_BUFSIZE        1024            # Buffer size for combine (MB)
+VMEM_MAX               90000            # Maximum amount of virtual memory (MB)
+MEM_MAX                90000            # Maximum amount of usable RAM (MB)
+COMBINE_BUFSIZE        90000            # Buffer size for combine (MB)
 #------------------------------ Miscellaneous ---------------------------------
 DELETE_TMPFILES        Y               # Delete temporary resampled FITS files
                                        # (Y/N)?
@@ -93,7 +87,7 @@ WRITE_FILEINFO         Y               # Write information about each input
 WRITE_XML              N               # Write XML file (Y/N)?
 XML_NAME               swarp.xml       # Filename for XML output
 VERBOSE_TYPE           FULL           # QUIET,NORMAL or FULL
-NTHREADS               0               # Number of simultaneous threads for
+NTHREADS               30              # Number of simultaneous threads for
                                        # the SMP version of SWarp
                                        # 0 = automatic
 EOT
