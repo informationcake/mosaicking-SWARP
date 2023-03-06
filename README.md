@@ -6,6 +6,8 @@
 
 **The SWARP documentation (PDF download):** https://raw.githubusercontent.com/astromatic/swarp/legacy_doc/prevdoc/swarp.pdf
 
+**Use this webpage to obtain the fields required for a certain mosaic:** https://dr12.sdss.org/mosaics/
+
 
 ## How to build and run the container
 
