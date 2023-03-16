@@ -21,12 +21,24 @@ Run the container
 
     docker run --name swarp -d -t -v "$(pwd)"/scripts:/opt/scripts/ swarp:latest
 
+
+### Getting data
+
+Data must be downloaded outside of the container at the moment due to bugs with wget and the SDSS server.
+
+Run the get-data-parallel.sh script from outside the container with your input mosaic name file (J*.sh) from the SDSS website.
+
+
+### Making mosaics
+
 Exec into the container
 
     docker exec -it swarp /bin/bash
 
-Run the .sh script in scripts
+Run the J*.sh script 
+
+
 
 ### Options
 
-Verbose is set to FULL, but you can change this inside the script
+Verbose is set to FULL, but you can change this inside the J*.sh script
