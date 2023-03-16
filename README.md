@@ -26,7 +26,7 @@ Run the container
 
 Data must be downloaded outside of the container at the moment due to bugs with wget and the SDSS server.
 
-Run the get-data-parallel.sh script from outside the container with your input mosaic name file (J*.sh) from the SDSS website.
+Run the get-data-parallel.sh script from outside the container with your input mosaic name file (J*.sh) from the SDSS website. There are small and large versions in this repository.
 
 
 ### Making mosaics
@@ -35,8 +35,7 @@ Exec into the container
 
     docker exec -it swarp /bin/bash
 
-Run the J*.sh script 
-
+After downloading the data into the small or large folders, run the J*.sh script.
 
 
 ### Options
