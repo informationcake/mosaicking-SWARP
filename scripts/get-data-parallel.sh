@@ -1,5 +1,5 @@
 # this script will search for and grab the fits file list from the main script, and download them in parallel.
-# it requires the J*.sh file from the SDSS mosaic generation server to grab the list of requires fields.
+# it requires the J*.sh file as an argument from the SDSS mosaic generation server to grab the list of requires fields.
 
 # get list of files
 grep "https" $1 | cut -c 17- > files.txt
