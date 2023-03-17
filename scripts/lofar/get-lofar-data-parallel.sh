@@ -5,7 +5,7 @@
 grep "http" $1 | cut -c-51 > lofar-files.txt
 
 # download files in parallel
-echo "downloading "$(wc -l lofar-files.txt | cut -c-4)" files..."
+echo "downloading "$(wc -l < lofar-files.txt)" files..."
 cat lofar-files.txt | xargs -P 30 -I{} wget -nc -q {}
 
 # rename files to have .fits
