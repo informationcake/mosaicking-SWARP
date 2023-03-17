@@ -24,10 +24,15 @@ Run the container
 
 ### Getting data
 
+## SDSS data
+
 Data must be downloaded outside of the container at the moment due to bugs with wget and the SDSS server.
 
 Run the get-data-parallel.sh script from outside the container with your input mosaic name file (J*.sh) from the SDSS website. There are small and large versions in this repository.
 
+## LOFAR
+
+Run the get-data-parallel-lofar.sh script from outside the container with your input mosaic CSV file from the LOFAR surveys website https://vo.astron.nl/lotss_dr2/q/query_mosaics/form
 
 ### Making mosaics
 
