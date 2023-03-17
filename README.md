@@ -6,8 +6,9 @@
 
 **The SWARP documentation (PDF download):** https://raw.githubusercontent.com/astromatic/swarp/legacy_doc/prevdoc/swarp.pdf
 
-**Use this webpage to obtain the fields required for a certain mosaic:** https://dr12.sdss.org/mosaics/
+**Use this webpage to obtain the SDSS fields required for a certain mosaic:** https://dr12.sdss.org/mosaics/
 
+**Use this webpage to obtain the LOFAR fields required for a certain mosaic:** https://vo.astron.nl/lotss_dr2/q/query_mosaics/form
 
 ## How to build and run the container
 
@@ -28,7 +29,8 @@ Run the container
 
 Data must be downloaded outside of the container at the moment due to bugs with wget and the SDSS server.
 
-Run the get-data-parallel.sh script from outside the container with your input mosaic name file (J*.sh) from the SDSS website. There are small and large versions in this repository.
+Run the get-data-parallel.sh script from outside the container with your input mosaic name file (J*.sh) from the SDSS website. https://dr12.sdss.org/mosaics/
+There are small and large versions in this repository.
 
 ## LOFAR
 
