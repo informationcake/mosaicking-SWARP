@@ -33,7 +33,7 @@ Exec into the container where you can run swarp from the command line
 
 SDSS data must be downloaded outside of the container at the moment due to bugs with wget and the SDSS server.
 
-Run the get-data-parallel.sh script from outside the container with your input mosaic name file (J*.sh) from the SDSS website. https://dr12.sdss.org/mosaics/
+Run the get-sdss-data-parallel.sh script from outside the container with your input mosaic name file (J*.sh) from the SDSS website. https://dr12.sdss.org/mosaics/
 There are small and large versions in this repository.
 
 Then to create the mosaic, run the J*.sh script from inside the container.
@@ -42,7 +42,7 @@ Then to create the mosaic, run the J*.sh script from inside the container.
 
 This can all be run inside the container with one script. First, select a sky position and area from the LOFAR surveys website and download a CSV file containing the relevant file paths. https://vo.astron.nl/lotss_dr2/q/query_mosaics/form
 
-Then run the get-data-parallel-lofar.sh script with the input mosaic CSV file. Data will be downloaded and a mosaic will be made.
+Then run the get-lofar-data-parallel.sh script with the input mosaic CSV file. Data will be downloaded and a mosaic will be made.
 
 
 
