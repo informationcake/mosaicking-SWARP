@@ -18,7 +18,7 @@ Build the image
 
     docker build . -f ./Dockerfile --tag swarp:latest
 
-Run the container
+Run the container, mounting your path so we can access data inside or outside of the container
 
     docker run --name swarp -d -t -v "$(pwd)"/scripts:/opt/scripts/ swarp:latest
 
