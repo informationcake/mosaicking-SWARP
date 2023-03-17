@@ -31,10 +31,11 @@ Exec into the container where you can run swarp from the command line
 
 ## SDSS data
 
-SDSS data must be downloaded outside of the container at the moment due to bugs with wget and the SDSS server.
+SDSS data must be downloaded outside of the container at the moment due to bugs with wget and the SDSS server. 
+First you should go to the SDSS website (https://dr12.sdss.org/mosaics/) and generate a J*.sh file for your selection. 
+There are small and large examples of the J*.sh file in this repository that you can use.
 
-Run the get-sdss-data-parallel.sh script from outside the container with your input mosaic name file (J*.sh) from the SDSS website. https://dr12.sdss.org/mosaics/
-There are small and large versions in this repository.
+Now run the get-sdss-data-parallel.sh script from outside the container with your J*.sh file as the input argument. For very large mosaics, the downloads can take a while and I've noticed it can hang on the final few files. You may need to cancel and restart the script, but it will not re-download files already obtained. It is best to check how many files are downloaded `ls \*.bz2 | wc -l` and compare it to what is expected.
 
 Then to create the mosaic, run the J*.sh script from inside the container.
 
