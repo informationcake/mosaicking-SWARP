@@ -11,3 +11,5 @@ cat lofar-files.txt | xargs -P 30 -I{} wget -nc -q {}
 # rename files to have .fits
 ls P* | while read line; do mv $line $line$".fits"; done
 
+# Now run swarp from the terminal as:
+# swarp `ls P*.fits`
