@@ -2,11 +2,11 @@
 # it requires the J*.sh file as an argument from the SDSS mosaic generation server to grab the list of requires fields.
 
 # get list of files
-grep "https" $1 | cut -c 17- > files.txt
+grep "https" $1 | cut -c 17- > sdss-files.txt
 
 # download files in parallel
-echo "downloading "$(wc -l files.txt | cut -c-4)" files..."
-cat files.txt | xargs -P 30 -I{} wget -nc -q {}
+echo "downloading "$(wc -l sdss-files.txt | cut -c-4)" files..."
+cat sdss-files.txt | xargs -P 30 -I{} wget -nc -q {}
 
 # decompress files in parallel
 echo "decompressing files..."
