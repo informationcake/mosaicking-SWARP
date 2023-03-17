@@ -5,7 +5,7 @@
 grep "https" $1 | cut -c 17- > files.txt
 
 # download files in parallel
-echo "downloading files..."
+echo "downloading "$(wc -l files.txt | cut -c-4)" files..."
 cat files.txt | xargs -P 30 -I{} wget -nc -q {}
 
 # decompress files in parallel
