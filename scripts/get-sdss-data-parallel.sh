@@ -5,7 +5,7 @@
 grep "https" $1 | cut -c 17- > sdss-files.txt
 
 # download files in parallel
-echo "downloading "$(wc -l sdss-files.txt | cut -c-4)" files..."
+echo "downloading "$(wc -l < sdss-files.txt)" files..."
 cat sdss-files.txt | xargs -P 30 -I{} wget -nc -q {}
 
 # decompress files in parallel
