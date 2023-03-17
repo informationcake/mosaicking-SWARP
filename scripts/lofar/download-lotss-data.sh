@@ -1,12 +1,13 @@
 # download some LOFAR survey fields
-# https://lofar-surveys.org/dr2_release.html
+# assuming you have retrieved a file list from the LOFAR surveys website and called it lofar-files.csv
 
-wget -nc -O P003+36.fits https://lofar-surveys.org/public/DR2/mosaics/P003+36/mosaic-blanked.fits
+# get list of file locations
+grep "http" lofar-files.csv | cut -c-51 > lofar-files.txt
 
-wget -nc -O P004+33.fits https://lofar-surveys.org/public/DR2/mosaics/P004+33/mosaic-blanked.fits
-wget -nc -O P004+38.fits https://lofar-surveys.org/public/DR2/mosaics/P004+38/mosaic-blanked.fits
-wget -nc -O P004+41.fits https://lofar-surveys.org/public/DR2/mosaics/P004+41/mosaic-blanked.fits
+# download files in parallel
+echo "downloading files..."
+cat lofar-files.txt | xargs -P 30 -I{} wget -nc -q {}
 
-wget -nc -O P005+28.fits https://lofar-surveys.org/public/DR2/mosaics/P005+28/mosaic-blanked.fits
-wget -nc -O P006+31.fits https://lofar-surveys.org/public/DR2/mosaics/P006+31/mosaic-blanked.fits
-wget -nc -O P006+36.fits https://lofar-surveys.org/public/DR2/mosaics/P006+36/mosaic-blanked.fits
+# rename files to have .fits
+ls P* | while read line; do mv $line $line$".fits"; done
+
