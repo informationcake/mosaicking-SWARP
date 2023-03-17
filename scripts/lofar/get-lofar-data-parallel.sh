@@ -1,8 +1,8 @@
-# download some LOFAR survey fields and make a mosaic
-# assuming you have retrieved a file list from the LOFAR surveys website and called it lofar-files.csv
+# A script to download some LOFAR survey fields and make a mosaic.
+# Assuming you have retrieved a file list (.csv) from the LOFAR surveys website and given it as an argument to this script.
 
-# get list of file locations
-grep "http" lofar-files.csv | cut -c-51 > lofar-files.txt
+# get list of file locations from an input csv file provided as an argument
+grep "http" $1 | cut -c-51 > lofar-files.txt
 
 # download files in parallel
 echo "downloading files..."
