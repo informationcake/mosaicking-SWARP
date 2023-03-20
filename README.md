@@ -49,4 +49,5 @@ Then run the get-lofar-data-parallel.sh script with the input mosaic CSV file. D
 
 ### Options
 
-Verbose is set to FULL, but you can change this inside the J*.sh script
+Verbose is set to NORMAL for scripts in this repository, but you can change this inside the J*.sh script.
+Verbose is set to QUIET for J0*.sh scripts downloaded from the SDSS website.
