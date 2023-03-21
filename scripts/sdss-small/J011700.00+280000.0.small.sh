@@ -911,7 +911,7 @@ BACK_FILTERSIZE        3               # Background map filter range (meshes)
 #------------------------------ Memory management -----------------------------
 
 VMEM_DIR               .               # Directory path for swap files
-VMEM_MAX               110000            # Maximum amount of virtual memory (MB)
+VMEM_MAX               20000            # Maximum amount of virtual memory (MB)
 MEM_MAX                110000            # Maximum amount of usable RAM (MB)
 COMBINE_BUFSIZE        20000            # Buffer size for combine (MB)
 
