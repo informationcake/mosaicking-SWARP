@@ -33,7 +33,7 @@ Exec into the container where you can run swarp from the command line
 
 SDSS data must be downloaded outside of the container at the moment due to bugs with wget and the SDSS server. 
 First you should go to the SDSS website (https://dr12.sdss.org/mosaics/) and generate a J*.sh file for your selection. 
-There are small and large examples of the J*.sh file in this repository that you can use.
+There is a small example of the J*.sh file in this repository (scripts/sdss-small) that you can use so you don't have to go to the SDSS website.
 
 Now run the get-sdss-data-parallel.sh script from outside the container with your J*.sh file as the input argument. For very large mosaics, the downloads can take a while and I've noticed it can hang on the final few files. You may need to cancel and restart the script, but it will not re-download files already obtained. It is best to check how many files are downloaded `ls \*.bz2 | wc -l` and compare it to what is expected.
 
@@ -43,7 +43,9 @@ Then to create the mosaic, run the J*.sh script from inside the container.
 
 This can all be run inside the container with one script. First, select a sky position and area from the LOFAR surveys website and download a CSV file containing the relevant file paths. https://vo.astron.nl/lotss_dr2/q/query_mosaics/form
 
-Then run the get-lofar-data-parallel.sh script with the input mosaic CSV file. Data will be downloaded and a mosaic will be made.
+An example csv file is provided in this repo (scripts/lofar/lofar-files.csv)
+
+Then run the get-lofar-data-parallel.sh script with the input mosaic CSV file as an argument. Data will be downloaded and a mosaic will be made.
 
 
 
@@ -60,5 +62,17 @@ Creating large mosaics that have lots of small input files uses an enormous amou
 
 When mosaicking together lots (100's) of small images the limiting factor is disk space. But SWARP can make large mosaics if the input images are large. For example, creating a 10x10 degree mosaic of LOFAR data: When mosaicking together 25 lofar images, each 600 MB, 8000x8000 pixels: it uses 20GB of disk space, 6GB RAM for reprojectionm, and 25GB RAM for coadd.
 
+## Using Carta to view the mosaics
 
+This is outside the scope of this repository, but I'm adding this here for bonus documentation.
+- Install Carta: https://gitlab.com/ska-telescope/src/ska-carta-container
+- From my local pc, create a tunnel to the machine where Carta is installed
+    ssh -i ~/.ssh/id_rsa -L 8000:localhost:8000 dmz
+- Tunnel to machine from DMZ host
+    ssh -i ~/.ssh/id_rsa -L 8000:localhost:8000 192.168.50.141
+
+## Adding data to the Data Lake
+
+Assuming Rucio contain has been pulled:
+    sudo docker run -v /home/aclarke/swarp/swarp-container/scripts/:/data --rm -it -e RUCIO_CFG_RUCIO_HOST=https://srcdev.skatelescope.org/rucio-dev -e RUCIO_CFG_AUTH_HOST=https://srcdev.skatelescope.org/rucio-dev -e RUCIO_CFG_AUTH_TYPE=oidc -e RUCIO_CFG_ACCOUNT=alexclarke --name=ska-rucio-client registry.gitlab.com/ska-telescope/src/ska-rucio-client:release-1.29.0
 
