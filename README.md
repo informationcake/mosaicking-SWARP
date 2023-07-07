@@ -25,7 +25,18 @@ Run the container, mounting your path so we can access data inside or outside of
 Exec into the container where you can run swarp from the command line
 
     docker exec -it swarp /bin/bash
-    
+
+## How to use a Jupyter notebook
+
+SWARP is run from the command line, but you can use a Jupyter notebook to run this using the terminal, and then plot the images using Python.
+
+To use a Jupyter notebook environment, build and run the container in the Jupyter folder in this repository.
+
+```
+docker build . -f ./Dockerfile --tag swarpjupyter:latest
+
+docker run -p 8888:8888 -v "$(pwd)"/scripts:/home/jovyan/scripts --user root -e GRANT_SUDO=yes swarpjupyter
+```
 
 ### Getting data & making mosaics
 
