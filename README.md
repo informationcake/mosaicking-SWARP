@@ -30,13 +30,21 @@ Exec into the container where you can run swarp from the command line
 
 SWARP is run from the command line, but you can use a Jupyter notebook to run this using the terminal, and then plot the images using Python.
 
-To use a Jupyter notebook environment, change to the Jupyter directory then build and run the container. A link will appear which you can copy into your browser to access.
+To use a Jupyter notebook environment, change to the Jupyter directory
 
     cd Jupyter
-    
+
+then build the container
+
     docker build . -f ./Dockerfile --tag swarpjupyter:latest
 
+then run the container and a link will appear which you can copy into your browser to access
+
     docker run -p 8888:8888 -v "$(pwd)"/scripts:/home/jovyan/scripts --user root -e GRANT_SUDO=yes swarpjupyter
+
+You should then start a terminal to run the appropriate scripts for LOFAR or SDSS mosaics.
+
+Finally, you can start a notebook environment and run the `plot-mosaic.ipynb` in the `/jupyter/scripts/lofar` folder to create a plot.
 
 ### Getting data & making mosaics
 
